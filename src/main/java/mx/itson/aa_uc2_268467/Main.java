@@ -4,10 +4,25 @@
  */
 package mx.itson.aa_uc2_268467;
 
+
 /**
  *
  * @author Vanni
  */
 public class Main {
     
+     public static void main(String[] args) {
+         
+        int[] arreglo = {5,3,8};
+
+        Ordenamientos.burbuja(arreglo);
+
+        System.out.println("Arreglo ordenado:");
+
+        for (int num : arreglo) {
+            System.out.print(num + " ");
+        }
+
+    }
 }
+     
