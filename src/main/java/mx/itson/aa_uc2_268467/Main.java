@@ -13,15 +13,25 @@ public class Main {
     
      public static void main(String[] args) {
          
-        int[] arreglo = {5,3,8};
+        //int[] arreglob = {4,5,4};
+        int[] arreglosort = {5,3,4};
 
-        Ordenamientos.burbuja(arreglo);
+        //Ordenamientos.burbuja(arreglob);
+        
+       Ordenamientos.selectionSort(arreglosort);
+        
+        //System.out.println("Arreglo ordenado con algoritmo de burbuja:");
 
-        System.out.println("Arreglo ordenado:");
+       //for (int num : arreglob) {
+       //     System.out.print(num + " ");
+       // }
+       System.out.println("Arreglo ordenado con algoritmo de Selección:");
 
-        for (int num : arreglo) {
+       for (int num : arreglosort) {
             System.out.print(num + " ");
-        }
+           
+       }
+ 
 
     }
 }
