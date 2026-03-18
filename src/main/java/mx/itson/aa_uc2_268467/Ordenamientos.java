@@ -75,9 +75,36 @@ public class Ordenamientos {
             arr[i] = aux; // arr[0] = 3
 
         }
+        
     }
-
-
+      public static void insertionSort(int[] arr){ //BIG O(n^2)
+          
+        int n = arr.length; //n= 3
+        
+        for (int i = 1; i < n; i++){
+            // 1.- i = 1  arreglo {5,3,4}
+            // 2.- i = 2  arreglo {3,5,4}
+            
+            int key = arr[i];
+            // key= 3
+            // key= 4
+            
+            int j = i - 1;
+            // 1.- j = 0 (que en el arreglo es 5
+            // 2.- j = 1 (que en la segunda i sería el 5 ya que ca,bió a la posición 1) 
+            
+            while (j >= 0 && arr[j] > key){
+                //1.- es verdadero porque j es igual que 0 y 5>3
+                //2.- es verdadero porque j es mayor que 0 y 5>4
+                
+                arr[j + 1] = arr[j]; //1.- se inserta en la 1 el 5 //2.- Se inserta en la posición 2 el 5
+                
+                
+                j = j - 1; //1.- j = -1  // 2.- j= 0
+            }
+            arr[j + 1] = key; //1.- -1+1= 0 , el index 0 será igual 3 // 2.- 0+1=1 el index 1 será igual 4
+        }
+    }
         
 }
     

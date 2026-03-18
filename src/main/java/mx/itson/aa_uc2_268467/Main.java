@@ -4,6 +4,8 @@
  */
 package mx.itson.aa_uc2_268467;
 
+import java.util.Scanner;
+
 
 /**
  *
@@ -13,26 +15,37 @@ public class Main {
     
      public static void main(String[] args) {
          
-        //int[] arreglob = {4,5,4};
-        int[] arreglosort = {5,3,4};
+        Scanner sc = new Scanner(System.in);
 
-        //Ordenamientos.burbuja(arreglob);
-        
-       Ordenamientos.selectionSort(arreglosort);
-        
-        //System.out.println("Arreglo ordenado con algoritmo de burbuja:");
+        int[] arreglo = {5, 3, 4};
 
-       //for (int num : arreglob) {
-       //     System.out.print(num + " ");
-       // }
-       System.out.println("Arreglo ordenado con algoritmo de Selección:");
+        System.out.println("Seleccione el método:");
+        System.out.println("1. Burbuja");
+        System.out.println("2. Selección");
+        System.out.println("3. Inserción");
+        System.out.print("Opción: ");
 
-       for (int num : arreglosort) {
+        int opcion = sc.nextInt();
+
+        if (opcion == 1) {
+            Ordenamientos.burbuja(arreglo);
+            System.out.println("Ordenado con Burbuja:");
+        } else if (opcion == 2) {
+            Ordenamientos.selectionSort(arreglo);
+            System.out.println("Ordenado con Selección:");
+        } else if (opcion == 3) {
+            Ordenamientos.insertionSort(arreglo);
+            System.out.println("Ordenado por Inserción:"); 
+        } else {
+            System.out.println("Opción no válida");
+            return;
+        }
+
+        for (int num : arreglo) {
             System.out.print(num + " ");
-           
-       }
- 
+        }
 
+        sc.close();
     }
 }
      
