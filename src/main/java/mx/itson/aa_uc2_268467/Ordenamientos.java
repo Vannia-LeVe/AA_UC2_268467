@@ -1,5 +1,7 @@
 package mx.itson.aa_uc2_268467;
 
+import java.util.Arrays;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -47,7 +49,7 @@ public class Ordenamientos {
         }
     }
     
-      public static void selectionSort(int[] arr){ //complejidad de big O(n^2)
+    public static void selectionSort(int[] arr){ //complejidad de big O(n^2)
 
         int n = arr.length;//n= 3 
                             //3-1=2
@@ -77,7 +79,7 @@ public class Ordenamientos {
         }
         
     }
-      public static void insertionSort(int[] arr){ //BIG O(n^2)
+    public static void insertionSort(int[] arr){ //BIG O(n^2)
           
         int n = arr.length; //n= 3
         
@@ -105,8 +107,54 @@ public class Ordenamientos {
             arr[j + 1] = key; //1.- -1+1= 0 , el index 0 será igual 3 // 2.- 0+1=1 el index 1 será igual 4
         }
     }
-        
-}
-    
     
 
+    public static void quickSort(int[] arr, int inicio, int fin){ // O(n^2)
+        // Se verifica que haya más de un elemento
+       
+        if (inicio < fin){
+            
+            //posicion del pivote que es el ultimo del arreglo
+            int pivoteIndice = particion(arr, inicio, fin);
+            
+            System.out.println("El índice del pivote es: " + pivoteIndice + ". El arreglo actualmente es: " + Arrays.toString(arr));
+            
+            // Sub arreglo Izquierdo
+            System.out.println("Izquierda");
+            quickSort(arr, inicio, pivoteIndice - 1);
+            
+            // Sub arreglo Derecho
+            System.out.println("Derecha");
+            quickSort(arr, pivoteIndice + 1, fin);
+        }
+    }
+    
+    public static int particion(int[] arr, int inicio, int fin){
+        // Se toma como pivote el último elemento
+        int pivote = arr[fin];
+        
+        
+        int i = inicio - 1;
+        //posición del menor elemento encontrado
+        
+        for (int j = inicio; j < fin; j++){
+            
+            
+            
+            if (arr[j] < pivote){
+                i++;
+                
+                // Intercambio
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        // Se coloca el pivote en su posición correcta
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[fin];
+        arr[fin] = temp;
+        
+        return i + 1;//índice final del pivote
+    }
+}
