@@ -17,13 +17,14 @@ public class Main {
          
         Scanner sc = new Scanner(System.in);
 
-        int[] arreglo = {4,1, 3, 4};
+        int[] arreglo = {19,2,36,8,1,24};
 
         System.out.println("Seleccione el método de ordenamiento:");
         System.out.println("1. Burbuja");
         System.out.println("2. Selección");
         System.out.println("3. Inserción");
         System.out.println("4. Quicksort");
+        System.out.println("5. Ordenado con MergeSort");
         System.out.print("Opción: ");
 
         int opcion = sc.nextInt();
@@ -40,7 +41,9 @@ public class Main {
         }else if (opcion == 4) {
             System.out.println("Ordenado por : Quicksort "); 
             Ordenamientos.quickSort(arreglo, 0, arreglo.length -1);
-            
+        }else if (opcion == 5) {
+            Ordenamientos.mergeSort(arreglo, 0, arreglo.length - 1);
+            System.out.println("Ordenado con MergeSort:");  
         } else {
             System.out.println("Opción no válida");
             return;

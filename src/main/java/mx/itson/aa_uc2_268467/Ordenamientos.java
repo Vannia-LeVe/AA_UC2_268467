@@ -157,4 +157,69 @@ public class Ordenamientos {
         
         return i + 1;//índice final del pivote
     }
+
+        public static void mergeSort(int[] arreglo, int izquierda, int derecha) {
+        // Caso base: subarreglo de 1 elemento ya está ordenado
+        if (izquierda < derecha) { // 1 (comparación)
+            
+            int medio = (izquierda + derecha) / 2; // 1(asignación) + 1(suma) + 1(división) = 3
+            
+            // Dividir recursivamente
+            mergeSort(arreglo, izquierda, medio); // 1 llamada
+            mergeSort(arreglo, medio + 1, derecha); // 1 llamada
+            
+            // Mezclar las mitades ordenadas
+            merge(arreglo, izquierda, medio, derecha); // 1 llamada
+        }
+    }
+
+    public static void merge(int[] arreglo, int izquierda, int medio, int derecha) {
+        
+        // 1. Calcular tamaños de los subarreglos
+        int n1 = medio - izquierda + 1; // 1(resta) + 1(suma) + 1(asignación) = 3
+        int n2 = derecha - medio; // 1(resta) + 1(asignación) = 2
+        
+        // 2. Crear arreglos temporales
+        int[] izquierdaArr = new int[n1]; // 1 creación
+        int[] derechaArr = new int[n2]; // 1 creación
+        
+        // 3. Copiar datos a los arreglos temporales
+       for (int i = 0; i < n1; i++) {
+           izquierdaArr[i] = arreglo[izquierda + i];
+       }
+
+       for (int j = 0; j < n2; j++) { 
+           derechaArr[j] = arreglo[medio + 1 + j];
+       }
+
+        // 4. Inicializar índices
+        int i = 0, j = 0; // 2 asignaciones = 2
+        int k = izquierda; // 1 asignación = 1
+        
+        // 5. Mezclar (comparar y colocar el menor)
+        while (i < n1 && j < n2) { // 2
+            if (izquierdaArr[i] <= derechaArr[j]) { // 1 comparación + 2 accesos = 3
+                arreglo[k] = izquierdaArr[i]; // 1(asignación) + 2(accesos) = 3
+                i++; // 1
+            } else {
+                arreglo[k] = derechaArr[j]; // 1(asignación) + 2(accesos) = 3
+                j++; // 1
+            }
+            k++; // 1  
+        } 
+        
+        // 6. Copiar elementos restantes del arreglo izquierdo
+        while (i < n1) { // 1 comparación por iteración
+            arreglo[k] = izquierdaArr[i]; // 1(asignación) + 2(accesos) = 3
+            i++; // 1 incremento = 1
+            k++; // 1 incremento = 1
+        } 
+        
+        // 7. Copiar elementos restantes del arreglo derecho
+        while (j < n2) { // 1 comparación por iteración
+            arreglo[k] = derechaArr[j]; // 1(asignación) + 2(accesos) = 3
+            j++; // 1 
+            k++; // 1 
+        } 
+    }
 }
