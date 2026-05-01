@@ -121,8 +121,7 @@ public class Ordenamientos {
             
             // Sub arreglo Izquierdo
             System.out.println("Izquierda");
-            quickSort(arr, inicio, pivoteIndice - 1);
-            
+            quickSort(arr, inicio, pivoteIndice - 1);            
             // Sub arreglo Derecho
             System.out.println("Derecha");
             quickSort(arr, pivoteIndice + 1, fin);
